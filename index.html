@@ -32,10 +32,10 @@
     }
     section {
       padding: 2rem;
-      display: none; /* se ocultan por defecto */
+      display: none;
     }
     section.active {
-      display: block; /* se muestra la sección activa */
+      display: block;
     }
     h2 {
       color: #0033cc;
@@ -67,6 +67,10 @@
     .btn:hover {
       background-color: #002299;
     }
+    form label {
+      display: block;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -81,11 +85,14 @@
     <a data-target="servicios">Servicios</a>
     <a data-target="testimonios">Testimonios</a>
     <a data-target="contacto">Contacto</a>
+    <a data-target="agregar-testimonio">Agregar testimonio</a>
   </nav>
 
   <section id="quienes" class="active">
     <h2>Quiénes somos</h2>
     <p>Con más de <strong>8 años de experiencia</strong> en capacitaciones, en <strong>ImpulsaPro</strong> nos apasiona acelerar el desarrollo profesional de personas y organizaciones. Creamos experiencias de aprendizaje prácticas, dinámicas y orientadas a resultados medibles.</p>
+
+    <p><strong>Fundador:</strong> Ing. Cruz Rodríguez López</p>
 
     <h3>Misión</h3>
     <p>Brindar programas de capacitación y consultoría de excelencia que impulsen el talento y mejoren los resultados de nuestros clientes.</p>
@@ -143,12 +150,19 @@
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <form action="mailto:tucorreo@ejemplo.com" method="post" enctype="text/plain">
-      <label>Nombre:<br><input type="text" name="nombre" required></label><br><br>
-      <label>Correo electrónico:<br><input type="email" name="email" required></label><br><br>
-      <label>Mensaje:<br><textarea name="mensaje" rows="5" required></textarea></label><br><br>
+    <form action="mailto:cruzr3357@gmail.com" method="post" enctype="text/plain">
+      <label>Nombre:<br><input type="text" name="nombre" required></label>
+      <label>Correo electrónico:<br><input type="email" name="email" required></label>
+      <label>Mensaje:<br><textarea name="mensaje" rows="5" required></textarea></label>
       <button class="btn" type="submit">Enviar mensaje</button>
     </form>
+  </section>
+
+  <section id="agregar-testimonio">
+    <h2>Agregar testimonio</h2>
+    <p>Comparte tu experiencia con nosotros. Escribe tu testimonio y envíalo a nuestro correo:</p>
+    <p><strong><a href="mailto:cruzr3357@gmail.com">cruzr3357@gmail.com</a></strong></p>
+    <p>Incluye tu nombre, el servicio recibido y tu opinión sobre la capacitación.</p>
   </section>
 
   <footer>
@@ -156,7 +170,6 @@
   </footer>
 
   <script>
-    // Ocultar/mostrar secciones al hacer clic en el menú
     const links = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('section');
 
@@ -170,7 +183,6 @@
             sec.classList.remove('active');
           }
         });
-        // Desplaza suavemente al inicio de la página
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
