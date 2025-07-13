@@ -28,9 +28,14 @@
       color: #FFD700;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
     section {
       padding: 2rem;
+      display: none; /* se ocultan por defecto */
+    }
+    section.active {
+      display: block; /* se muestra la sección activa */
     }
     h2 {
       color: #0033cc;
@@ -72,15 +77,15 @@
   </header>
 
   <nav>
-    <a href="#quienes">Quiénes somos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#contacto">Contacto</a>
+    <a data-target="quienes">Quiénes somos</a>
+    <a data-target="servicios">Servicios</a>
+    <a data-target="testimonios">Testimonios</a>
+    <a data-target="contacto">Contacto</a>
   </nav>
 
-  <section id="quienes">
+  <section id="quienes" class="active">
     <h2>Quiénes somos</h2>
-    <p>En <strong>ImpulsaPro</strong> nos apasiona acelerar el desarrollo profesional de personas y organizaciones. Creamos experiencias de aprendizaje prácticas, dinámicas y orientadas a resultados medibles.</p>
+    <p>Con más de <strong>8 años de experiencia</strong> en capacitaciones, en <strong>ImpulsaPro</strong> nos apasiona acelerar el desarrollo profesional de personas y organizaciones. Creamos experiencias de aprendizaje prácticas, dinámicas y orientadas a resultados medibles.</p>
 
     <h3>Misión</h3>
     <p>Brindar programas de capacitación y consultoría de excelencia que impulsen el talento y mejoren los resultados de nuestros clientes.</p>
@@ -101,36 +106,38 @@
   <section id="servicios">
     <h2>Servicios que ofrecemos</h2>
     <ul>
-      <li>(Habilidades blandas)</li>
+      <li>(Habilidades blandas: Liderazgo, Trabajo en equipo)</li>
       <li>Capacitaciones en 5S</li>
       <li>Kaizen</li>
       <li>Presentaciones efectivas</li>
       <li>Hablar en público</li>
+      <li>Servicio al cliente</li>
+      <li>Entre otras</li>
     </ul>
   </section>
 
   <section id="testimonios">
     <h2>Testimonios</h2>
     <div class="testimonio">
-      <p>"La capacitación superó mis expectativas y fortaleció mis competencias profesionales." – <strong>Cruz Rodríguez</strong></p>
+      <p>"Cruz Rodríguez nos guió de forma magistral; su curso transformó la cultura de nuestro equipo." – <strong>Laura Martínez</strong></p>
     </div>
     <div class="testimonio">
-      <p>"Gracias al taller de 5S, mi área de trabajo está mucho más ordenada y eficiente." – <strong>Laura Martínez</strong></p>
+      <p>"La metodología de Cruz en 5S logró que nuestra planta operara con 30% más eficiencia." – <strong>Antonio Herrera</strong></p>
     </div>
     <div class="testimonio">
-      <p>"La sesión de hablar en público me ayudó a perder el miedo escénico. ¡Excelente enfoque práctico!" – <strong>Antonio Herrera</strong></p>
+      <p>"Gracias a la capacitación de Kaizen impartida por Cruz Rodríguez, implementamos mejoras continuas cada semana." – <strong>Rocío Hernández</strong></p>
     </div>
     <div class="testimonio">
-      <p>"El curso de Kaizen nos dio herramientas útiles para mejorar procesos en equipo." – <strong>Rocío Hernández</strong></p>
+      <p>"El taller de habilidades blandas con Cruz mejoró la comunicación y liderazgo de todo el personal." – <strong>Víctor Luna</strong></p>
     </div>
     <div class="testimonio">
-      <p>"Las habilidades blandas abordadas me ayudaron a mejorar mi comunicación y liderazgo." – <strong>Víctor Luna</strong></p>
+      <p>"Las presentaciones efectivas nunca habían sido tan sencillas hasta que Cruz nos asesoró." – <strong>María Fernanda Torres</strong></p>
     </div>
     <div class="testimonio">
-      <p>"Las presentaciones efectivas me dieron más seguridad y estructura al exponer ideas." – <strong>María Fernanda Torres</strong></p>
+      <p>"Hablar en público era nuestro reto; Cruz Rodríguez nos dio herramientas prácticas y confianza." – <strong>Daniel Robledo</strong></p>
     </div>
     <div class="testimonio">
-      <p>"ImpulsaPro me ofreció una experiencia formativa de gran valor, orientada a resultados reales." – <strong>Daniel Robledo</strong></p>
+      <p>"El servicio al cliente mejoró notablemente tras la formación con Cruz; obtuvimos excelentes resultados." – <strong>Carlos Mendoza</strong></p>
     </div>
   </section>
 
@@ -147,5 +154,26 @@
   <footer>
     <p>&copy; 2025 ImpulsaPro. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Ocultar/mostrar secciones al hacer clic en el menú
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const target = link.getAttribute('data-target');
+        sections.forEach(sec => {
+          if (sec.id === target) {
+            sec.classList.add('active');
+          } else {
+            sec.classList.remove('active');
+          }
+        });
+        // Desplaza suavemente al inicio de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
